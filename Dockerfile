@@ -1,6 +1,9 @@
 
 FROM amazon/aws-cli
-RUN aws s3 cp . s3://s3terrabukt/ --recursive
+RUN mkdir /front
+WORKDIR /front
+COPY . /front
+RUN  aws s3 cp /front s3://bucketname --recursive
 
 
 
